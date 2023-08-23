@@ -10,9 +10,13 @@ export default class PVE extends Battle {
   }
 
   fight(): number {
-    if (this.player.lifePoints > 0 && this._environment.length > 0) {
-      return 0;
-    }
+    this._environment.forEach((enemy) => {
+      while (this.player.lifePoints > 0 && enemy.lifePoints > 0) {
+        this.player.attack(enemy);
+        enemy.attack(this.player);
+      }
+    });
+    
     // Deve retornar 1 se o "player" vencer, -1 caso contrário
     return super.fight();
   }
