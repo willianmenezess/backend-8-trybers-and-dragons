@@ -1,10 +1,10 @@
 import Battle from './Battle';
-import Fighter from '../Fighter';
+import Fighter, { SimpleFighter } from '../Fighter';
 
 export default class PVE extends Battle {
-  private _environment: Fighter[];
+  private _environment: Array<Fighter | SimpleFighter>;
 
-  constructor(player: Fighter, environment: Fighter[]) {
+  constructor(player: Fighter, environment: Array<Fighter | SimpleFighter>) {
     super(player);
     this._environment = environment;
   }
